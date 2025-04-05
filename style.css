@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Underdog", system-ui;
+    overflow: hidden;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 5px 15px;
+    background-color: #FADADD; 
+}
+
+nav a{
+    text-decoration: none;
+    padding: 4px 5px;
+    color: black;
+}
+
+.calc{
+    width: 280px;
+    height: 466px;
+    margin: 30px;
+    margin-left: 560px;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.8);
+    font-size: 1;
+    background-color: #FFFDF6;
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    padding: 41px 10px;
+    background-color: #D2F6C5;
+    border-radius: 20px;
+}
+
+button{
+    padding: 15px 10px;
+    margin: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.8);
+    font-family: "Underdog", system-ui;
+    font-size: 16px;
+}
+
+input{
+    width: 70%;
+    background: transparent;
+    background-color: #FFFDF6;
+    border: none;
+    border-radius: 15px;
+    padding: 39px;
+    font-family: "Underdog", system-ui;
+    font-size: 18px;
+    color: black;
+}
