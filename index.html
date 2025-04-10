@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>MINI</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,37 +16,59 @@
 <body>
     <header>
         <h1>MINTPOP</h1>
-        <nav>
+        <nav id="navbar">
             <a href="#calc">CALCULATOR</a>
-            <a href="">ROCK PAPER SCISSORS</a>
-            <a href="">MEMORY CARD</a>
+            <a href="#rps">ROCK PAPER SCISSORS</a>
+            <a href="#memo">MEMORY CARD</a>
         </nav>
     </header>
-    <div class="calc" id="calc">
-        <input type="text" id="display" class="display" disabled>
-        <div class="buttons">
-            <button class="button clear" onclick="clearDisplay()">C</button>
-            <button class="button operator" onclick="appendOperation('/')">/</button>
-            <button class="button operator" onclick="appendOperation('*')">*</button>
-            <button class="button operator" onclick="appendOperation('-')">-</button>
+    <div id="calc">
+        <div class="calc">
+            <input type="text" id="display" class="display" disabled>
+            <div class="buttons">
+                <button class="button clear" onclick="clearDisplay()">C</button>
+                <button class="button operator" onclick="appendOperation('/')">/</button>
+                <button class="button operator" onclick="appendOperation('*')">*</button>
+                <button class="button operator" onclick="appendOperation('-')">-</button>
 
-            <button class="button" onclick="appendNumber('7')">7</button>
-            <button class="button" onclick="appendNumber('8')">8</button>
-            <button class="button" onclick="appendNumber('9')">9</button>
-            <button class="button operator" onclick="appendOperation('+')">+</button>
+                <button class="button" onclick="appendNumber('7')">7</button>
+                <button class="button" onclick="appendNumber('8')">8</button>
+                <button class="button" onclick="appendNumber('9')">9</button>
+                <button class="button operator" onclick="appendOperation('+')">+</button>
 
-            <button class="button" onclick="appendNumber('4')">4</button>
-            <button class="button" onclick="appendNumber('5')">5</button>
-            <button class="button" onclick="appendNumber('6')">6</button>
-            <button class="button equal" onclick="calculate()">=</button>
+                <button class="button" onclick="appendNumber('4')">4</button>
+                <button class="button" onclick="appendNumber('5')">5</button>
+                <button class="button" onclick="appendNumber('6')">6</button>
+                <button class="button equal" onclick="calculate()">=</button>
 
-            <button class="button" onclick="appendNumber('3')">3</button>
-            <button class="button" onclick="appendNumber('2')">2</button>
-            <button class="button" onclick="appendNumber('1')">1</button>
-            <button class="button" onclick="appendNumber('0')">0</button>
+                <button class="button" onclick="appendNumber('3')">3</button>
+                <button class="button" onclick="appendNumber('2')">2</button>
+                <button class="button" onclick="appendNumber('1')">1</button>
+                <button class="button" onclick="appendNumber('0')">0</button>
+            </div>
         </div>
     </div>
+    <hr>
+    <div id="rps">
+        <div class="rps">
+            <h1 class="rpsheadline" id="rpshead">LETS PLAY A MATCH!</h1>
+            <div class="choices">
+                <button id="rock" onclick="playGame('rock')"></button>
+                <button id="paper" onclick="playGame('paper')"></button>
+                <button id="scissor" onclick="playGame('scissor')"></button>
+            </div>
+            <div class="players" id="playerDisplay">PLAYER: </div>
+            <div class="players" id="computerDisplay">COMPUTER: </div>
+            <div class="result" id="resultDisplay">CHOOSE YOUR WEAPON!</div>
+            <h2 class="rpshead2">SCORE</h2>
+            <div class="players" id="scoreDisplay">PLAYER: <span id="playerScoreDisplay">0</span></div>
+            <div class="players" id="scoreDisplay">COMPUTER: <span id="computerScoreDisplay">0</span></div>
+            <button class="reset" onclick="resetGame()">RESET</button>
+        </div>
+    </div>
+    <hr>
     <script src="calc.js"></script>
+    <script src="rps.js"></script>
 </body>
 
 </html>

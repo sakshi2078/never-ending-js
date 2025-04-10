@@ -2,7 +2,10 @@ body{
     margin: 0;
     padding: 0;
     font-family: "Underdog", system-ui;
-    overflow: hidden;
+    /* overflow-x: hidden; */
+    margin-top: 150px; /* Add this to make space below the fixed header */
+    margin-bottom: 1000px;
+    /* scroll-padding-top: 200px;  */
 }
 
 header{
@@ -12,19 +15,36 @@ header{
     text-align: center;
     padding: 5px 15px;
     background-color: #FADADD; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 10px;
+    width: 100%;
+    z-index: 2;
+}
+
+#navbar{
+    margin-right: 30px;
 }
 
 nav a{
     text-decoration: none;
-    padding: 4px 5px;
+    padding: 4px 4px;
     color: black;
 }
 
+hr{
+    border: 1px solid peachpuff;
+}
+
+/*CALCULATOR*/
+
 .calc{
     width: 280px;
-    height: 466px;
+    height: 465px;
     margin: 30px;
     margin-left: 560px;
+    margin-bottom: 100px;
     display: flexbox;
     justify-content: center;
     align-items: center;
@@ -39,12 +59,12 @@ nav a{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 10px;
-    padding: 41px 10px;
+    padding: 43px 10px;
     background-color: #D2F6C5;
     border-radius: 20px;
 }
 
-button{
+.button{
     padding: 15px 10px;
     margin: 5px;
     border: 2px solid black;
@@ -52,6 +72,12 @@ button{
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.8);
     font-family: "Underdog", system-ui;
     font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.button:hover{
+    background-color: hsl(104, 73%, 77%) ;
 }
 
 input{
@@ -64,4 +90,67 @@ input{
     font-family: "Underdog", system-ui;
     font-size: 18px;
     color: black;
+}
+
+/*ROCK PAPER SCISSORS*/
+
+.rps{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.rpsheadline{
+    margin-bottom: 50px;
+}
+.rpshead2{
+    margin: 0;
+}
+.choices button{
+    width: 200px;
+    height: 210px;
+    border: 2px  black;
+    border-style: dashed;
+    border-radius: 50%;
+    margin: 20px;
+    padding: 10px;
+}
+
+#rock{
+    background: url(images/rock.png);
+    object-fit: cover;
+}
+#paper{
+    background: url(images/paper.png);
+}
+#scissor{
+    background: url(images/scissor.png);
+}
+.greenText,#playerScoreDisplay{
+    color: green;
+}
+.redText,#computerScoreDisplay{
+    color: red;
+}
+.players{
+    font-size: 20px;
+    margin: 5px;
+}
+.result{
+    font-size: 22px;
+    font-weight: 600;
+    margin: 10px;
+    margin-bottom: 15px;
+}
+.reset{
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    border: 2px dashed black;
+    border-radius: 10px;
+    background-color: palevioletred;
+    margin-bottom: 50px;
 }
