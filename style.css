@@ -1,73 +1,158 @@
-body{
+:root {
+    --body-background: rgb(235, 235, 235);
+    --header-color: #f8c4c9;
+    --text-color: #000;
+    --hr-color: #ffc0cb;
+    --calc-base: #FFFDF6;
+    --calc-buttons-base: #D2F6C5;
+    --white-text-color: #ffffff;
+    --reset-btn-color: #e16d94;
+    --grey-color: rgb(110, 108, 108);
+    --font-color: #000;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+.darkMode {
+    --body-background: #0d1117;
+    --header-color: #1f2937;
+    /* dark cool gray */
+    --text-color: #f4f4f5;
+    /* soft white */
+    --hr-color: #4b5563;
+    /* soft slate */
+    --calc-base: #1e293b;
+    /* dark desaturated blue */
+    --calc-buttons-base: #334155;
+    /* deeper blue-gray */
+    --white-text-color: #f9fafb;
+    /* near-white */
+    --reset-btn-color: #a10452;
+    /* muted mauve-pink */
+    --grey-color: rgb(110, 108, 108);
+    --font-color: #fff;
+    --shadow-color: rgba(255, 255, 255, 0.3);
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--body-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0; */
+    /* padding: 0; */
+    /* box-sizing: border-box; */
     font-family: "Underdog", system-ui;
+    color: var(--font-color);
     /* overflow-x: hidden; */
-    margin-top: 150px; /* Add this to make space below the fixed header */
-    margin-bottom: 1000px;
+    margin-top: 150px;
+    /* Add this to make space below the fixed header */
+    /* margin-bottom: 1000px; */
     /* scroll-padding-top: 200px;  */
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    padding: 5px 15px;
-    background-color: #FADADD; 
-    position: fixed;
+    padding: 20px 15px;
     top: 0;
     left: 0;
-    right: 10px;
     width: 100%;
+    background-color: var(--header-color);
+    position: fixed;
     z-index: 2;
 }
 
-#navbar{
-    margin-right: 30px;
+#navbar {
+    margin-right: 60px;
 }
 
-nav a{
+nav a {
     text-decoration: none;
     padding: 4px 4px;
-    color: black;
+    color: var(--text-color);
 }
 
-hr{
-    border: 1px solid peachpuff;
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid var(--grey-color);
+    background-color: var(--header-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+}
+
+#theme-switch svg {
+    fill: var(--text-color);
+}
+
+#theme-switch svg:last-child {
+    display: none;
+}
+
+.darkMode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkMode #theme-switch svg:last-child {
+    display: block;
+}
+
+hr {
+    border: 1px dashed var(--hr-color);
 }
 
 /*CALCULATOR*/
 
-.calc{
+.calchead {
+    font-size: 20px;
+    text-align: center;
+}
+
+.calc {
     width: 280px;
-    height: 465px;
+    height: 470px;
     margin: 30px;
-    margin-left: 560px;
-    margin-bottom: 100px;
+    /* margin-left: 550px; */
+    margin-bottom: 70px;
     display: flexbox;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
+    border: 2px solid var(--text-color);
     border-radius: 20px;
     box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.8);
     font-size: 1;
-    background-color: #FFFDF6;
+    background-color: var(--calc-base);
 }
 
-.buttons{
+.buttons {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     padding: 43px 10px;
-    background-color: #D2F6C5;
+    background-color: var(--calc-buttons-base);
     border-radius: 20px;
 }
 
-.button{
+.button {
     padding: 15px 10px;
     margin: 5px;
-    border: 2px solid black;
+    border: 2px solid var(--text-color);
     border-radius: 10px;
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.8);
     font-family: "Underdog", system-ui;
@@ -76,81 +161,250 @@ hr{
     transition: background-color 0.5s ease;
 }
 
-.button:hover{
-    background-color: hsl(104, 73%, 77%) ;
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-input{
+input {
     width: 70%;
     background: transparent;
-    background-color: #FFFDF6;
+    background-color: var(--calc-base);
     border: none;
     border-radius: 15px;
     padding: 39px;
     font-family: "Underdog", system-ui;
     font-size: 18px;
-    color: black;
+    color: var(--text-color);
 }
 
 /*ROCK PAPER SCISSORS*/
 
-.rps{
+.rps {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
 }
-.rpsheadline{
+
+.rpsheadline {
     margin-bottom: 50px;
 }
-.rpshead2{
+
+.rpshead2 {
     margin: 0;
 }
-.choices button{
+
+.choices button {
     width: 200px;
     height: 210px;
-    border: 2px  black;
-    border-style: dashed;
+    border: 2px dashed var(--text-color);
     border-radius: 50%;
     margin: 20px;
     padding: 10px;
+    cursor: pointer;
 }
 
-#rock{
+.choices button:hover {
+    box-shadow: 8px 8px 5px var(--shadow-color);
+}
+
+#rock {
     background: url(images/rock.png);
     object-fit: cover;
 }
-#paper{
+
+#paper {
     background: url(images/paper.png);
 }
-#scissor{
+
+#scissor {
     background: url(images/scissor.png);
 }
-.greenText,#playerScoreDisplay{
+
+.greenText,
+#playerScoreDisplay {
     color: green;
 }
-.redText,#computerScoreDisplay{
+
+.redText,
+#computerScoreDisplay {
     color: red;
 }
-.players{
+
+.players {
     font-size: 20px;
     margin: 5px;
 }
-.result{
+
+.result {
     font-size: 22px;
     font-weight: 600;
     margin: 10px;
     margin-bottom: 15px;
 }
-.reset{
+
+.reset {
     margin: 10px;
     padding: 10px;
-    color: white;
+    color: var(--white-text-color);
     font-size: 16px;
     font-weight: 300;
-    border: 2px dashed black;
+    border: 2px dashed var(--text-color);
     border-radius: 10px;
-    background-color: palevioletred;
+    background-color: var(--reset-btn-color);
     margin-bottom: 50px;
+    cursor: pointer;
+}
+
+/* MEMORY CARD */
+#memo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
+}
+
+.memoheadline {
+    font-size: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.memory-game {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.memory-card {
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform.5s;
+    cursor: pointer;
+}
+
+.memory-card:active {
+    transform: scale(.97);
+    transition: transform .2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: var(--white-text-color);
+    border: 5px groove var(--header-color);
+    backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+
+/*MEDIA QUERIES*/
+
+@media screen and (max-width:600px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 600px;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        margin: auto;
+    }
+
+    #theme-switch {
+        margin-right: 20px;
+    }
+
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    .calchead {
+        margin-top: 100px;
+        margin-left: 260px;
+    }
+
+    .calc {
+        margin-left: 300px;
+    }
+
+    .rps {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .rpsheadline,
+    .result,
+    .rpshead2 {
+        font-size: 20px;
+        margin-left: 270px;
+    }
+
+    .choices {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 700px;
+        height: 300px;
+        margin-left: 225px;
+    }
+
+    .choices button {
+        width: 200px;
+        height: 200px;
+        padding: 0;
+        margin: 5px;
+    }
+
+    .players,
+    .reset {
+        margin-left: 290px;
+    }
+
+    .memory-game {
+        width: 600px;
+        height: 600px;
+        margin: auto;
+    }
+
+    .memoheadline,
+    .memory-game {
+        margin-left: 25px;
+    }
 }
